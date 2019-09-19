@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mfq.home.schooljob.dao.generation.SchoolFileInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mfq.home.schooljob.domain.generation.SchoolFileInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="school_id" jdbcType="VARCHAR" property="schoolId" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <trim prefix="(" prefixOverrides="and" suffix=")">
+        
+        <foreach collection="oredCriteria" item="criteria" separator="or">
+          <if test="criteria.valid">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <trim prefix="(" prefixOverrides="and" suffix=")">
+        
+        <foreach collection="example.oredCriteria" item="criteria" separator="or">
+          <if test="criteria.valid">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, school_id, file_name, created_at, updated_at
+  </sql>
+  <select id="selectByExample" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <if test="!definedQueryColumns">
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns">
+      <foreach collection="queryColumns" item="queryColumn" separator=",">
+        ${queryColumn}
+      </foreach>
+    </if>
+    from school_file_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from school_file_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from school_file_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfoExample">
+    delete from school_file_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfo" useGeneratedKeys="true">
+    insert into school_file_info (id, school_id, file_name, 
+      created_at, updated_at)
+    values (#{id,jdbcType=VARCHAR}, #{schoolId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfo" useGeneratedKeys="true">
+    insert into school_file_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfoExample" resultType="java.lang.Long">
+    select count(*) from school_file_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update school_file_info
+    <set>
+      <trim suffixOverrides=",">
+        <if test="record.schoolId!=null and record.schoolIdExpression==null">
+          school_id = #{record.schoolId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.schoolIdExpression!=null">
+          school_id = ${record.schoolIdExpression},
+        </if>
+        <if test="record.fileName!=null and record.fileNameExpression==null">
+          file_name = #{record.fileName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fileNameExpression!=null">
+          file_name = ${record.fileNameExpression},
+        </if>
+        <if test="record.createdAt!=null and record.createdAtExpression==null">
+          created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdAtExpression!=null">
+          created_at = ${record.createdAtExpression},
+        </if>
+        <if test="record.updatedAt!=null and record.updatedAtExpression==null">
+          updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.updatedAtExpression!=null">
+          updated_at = ${record.updatedAtExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update school_file_info
+    set id = #{record.id,jdbcType=VARCHAR},
+      school_id = #{record.schoolId,jdbcType=VARCHAR},
+      file_name = #{record.fileName,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfo">
+    update school_file_info
+    <set>
+      <trim suffixOverrides=",">
+        <if test="record.schoolId!=null and record.schoolIdExpression==null">
+          school_id = #{record.schoolId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.schoolIdExpression!=null">
+          school_id = ${record.schoolIdExpression},
+        </if>
+        <if test="record.fileName!=null and record.fileNameExpression==null">
+          file_name = #{record.fileName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fileNameExpression!=null">
+          file_name = ${record.fileNameExpression},
+        </if>
+        <if test="record.createdAt!=null and record.createdAtExpression==null">
+          created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdAtExpression!=null">
+          created_at = ${record.createdAtExpression},
+        </if>
+        <if test="record.updatedAt!=null and record.updatedAtExpression==null">
+          updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.updatedAtExpression!=null">
+          updated_at = ${record.updatedAtExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mfq.home.schooljob.domain.generation.SchoolFileInfo">
+    update school_file_info
+    set school_id = #{schoolId,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
