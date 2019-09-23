@@ -25,7 +25,7 @@ public class SchoolInfo implements Serializable {
     /** 学校首页地址 */
     private String homepageUrl;
 
-    /** 学校首页地址 */
+    /** 招生信息地址（相对路径） */
     private String recruitStudentsUrl;
 
     /** 创建时间 */

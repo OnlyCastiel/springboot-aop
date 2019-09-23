@@ -346,6 +346,146 @@ public class SchoolFileInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andFileUrlIsNull() {
+            addCriterion("file_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlIsNotNull() {
+            addCriterion("file_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlEqualTo(String value) {
+            addCriterion("file_url =", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlNotEqualTo(String value) {
+            addCriterion("file_url <>", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlGreaterThan(String value) {
+            addCriterion("file_url >", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("file_url >=", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlLessThan(String value) {
+            addCriterion("file_url <", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlLessThanOrEqualTo(String value) {
+            addCriterion("file_url <=", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlLike(String value) {
+            addCriterion("file_url like", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlNotLike(String value) {
+            addCriterion("file_url not like", value, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlIn(List<String> values) {
+            addCriterion("file_url in", values, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlNotIn(List<String> values) {
+            addCriterion("file_url not in", values, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlBetween(String value1, String value2) {
+            addCriterion("file_url between", value1, value2, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileUrlNotBetween(String value1, String value2) {
+            addCriterion("file_url not between", value1, value2, "fileUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeIsNull() {
+            addCriterion("file_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeIsNotNull() {
+            addCriterion("file_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeEqualTo(String value) {
+            addCriterion("file_code =", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeNotEqualTo(String value) {
+            addCriterion("file_code <>", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeGreaterThan(String value) {
+            addCriterion("file_code >", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("file_code >=", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeLessThan(String value) {
+            addCriterion("file_code <", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeLessThanOrEqualTo(String value) {
+            addCriterion("file_code <=", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeLike(String value) {
+            addCriterion("file_code like", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeNotLike(String value) {
+            addCriterion("file_code not like", value, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeIn(List<String> values) {
+            addCriterion("file_code in", values, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeNotIn(List<String> values) {
+            addCriterion("file_code not in", values, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeBetween(String value1, String value2) {
+            addCriterion("file_code between", value1, value2, "fileCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andFileCodeNotBetween(String value1, String value2) {
+            addCriterion("file_code not between", value1, value2, "fileCode");
+            return (Criteria) this;
+        }
+
         public Criteria andCreatedAtIsNull() {
             addCriterion("created_at is null");
             return (Criteria) this;

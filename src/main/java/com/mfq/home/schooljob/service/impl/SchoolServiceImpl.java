@@ -23,10 +23,6 @@ import java.util.regex.Pattern;
 public class SchoolServiceImpl implements SchoolService {
 
 
-    private static String httpPrefix="https://peda.smu.ac.kr";
-
-    private static String pageUrl ="/grad/admission/student.do";
-
     @Autowired
     private SchoolInfoMapper schoolInfoMapper;
 
@@ -59,35 +55,4 @@ public class SchoolServiceImpl implements SchoolService {
         return 0;
     }
 
-    public static void main(String[] args) {
-        //请求页面地址，获取html页面
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(httpPrefix+pageUrl).get();
-            Elements elementsByClass = doc.getElementsByClass("lnk-btn02 bg-lightblue");
-            String href = elementsByClass.attr("href");
-
-            String fileUrl = httpPrefix + href;
-            System.out.println(fileUrl);
-
-            HttpResponse httpResponse = HttpUtil.getHttpResponse(fileUrl, "get");
-            Header[] headers = httpResponse.getHeaders("Content-Disposition");
-            //String header = Jsoup.connect(fileUrl).execute().header("Content-Disposition");//attachment; filename="2019_fall2_admission_foreigner_CN.pdf"
-
-            Pattern pattern = Pattern.compile("filename=\"(.*?)\"");// 匹配的模式
-            Matcher m = pattern.matcher(headers[0].getValue());
-            while(m.find()){
-                String fileName =  m.group(1);
-                System.out.println(fileName);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-    }
 }

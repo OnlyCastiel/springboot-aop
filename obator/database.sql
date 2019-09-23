@@ -6,7 +6,7 @@ CREATE TABLE `school_info` (
   `school_name` varchar(64) NOT NULL COMMENT '学校名称原名',
   `school_namec_ch` varchar(64) NOT NULL COMMENT '学校中文名称',
   `homepage_url` varchar(64) NOT NULL COMMENT '学校首页地址',
-  `recruit_students_url` varchar(64) NOT NULL COMMENT '学校首页地址',
+  `recruit_students_url` varchar(64) NOT NULL COMMENT '招生信息地址（相对路径）',
   `created_at` timestamp NOT NULL COMMENT '创建时间',
   `updated_at` timestamp NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
@@ -17,6 +17,8 @@ CREATE TABLE `school_file_info` (
   `id` varchar(64) NOT NULL COMMENT '主键id,作为@BizId',
   `school_id` varchar(64) NOT NULL COMMENT '学校id',
   `file_name` varchar(64) NOT NULL COMMENT '文件名称',
+  `file_url` varchar(64) NOT NULL COMMENT '文件下载地址',
+  `file_code` varchar(64) COMMENT '文件标识（用作比对文件是否更新）',
   `created_at` timestamp NOT NULL COMMENT '创建时间',
   `updated_at` timestamp NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)

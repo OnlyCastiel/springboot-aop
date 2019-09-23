@@ -22,6 +22,12 @@ public class SchoolFileInfo implements Serializable {
     /** 文件名称 */
     private String fileName;
 
+    /** 文件下载地址 */
+    private String fileUrl;
+
+    /** 文件标识（用作比对文件是否更新） */
+    private String fileCode;
+
     /** 创建时间 */
     private Date createdAt;
 
@@ -45,6 +51,18 @@ public class SchoolFileInfo implements Serializable {
      **/
     @JsonIgnore
     private String fileNameExpression;
+
+    /** fileUrl属性对应的表达式属性，
+     * 目前用来支持update set 字段=表达式(如:'字段+1')这种场景
+     **/
+    @JsonIgnore
+    private String fileUrlExpression;
+
+    /** fileCode属性对应的表达式属性，
+     * 目前用来支持update set 字段=表达式(如:'字段+1')这种场景
+     **/
+    @JsonIgnore
+    private String fileCodeExpression;
 
     /** createdAt属性对应的表达式属性，
      * 目前用来支持update set 字段=表达式(如:'字段+1')这种场景
