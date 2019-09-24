@@ -7,6 +7,7 @@
     <result column="school_namec_ch" jdbcType="VARCHAR" property="schoolNamecCh" />
     <result column="homepage_url" jdbcType="VARCHAR" property="homepageUrl" />
     <result column="recruit_students_url" jdbcType="VARCHAR" property="recruitStudentsUrl" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
@@ -71,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, school_name, school_namec_ch, homepage_url, recruit_students_url, created_at, 
-    updated_at
+    id, school_name, school_namec_ch, homepage_url, recruit_students_url, method_name, 
+    created_at, updated_at
   </sql>
   <select id="selectByExample" parameterType="com.mfq.home.schooljob.domain.generation.SchoolInfoExample" resultMap="BaseResultMap">
     select
@@ -116,11 +117,11 @@
   </delete>
   <insert id="insert" keyProperty="id" parameterType="com.mfq.home.schooljob.domain.generation.SchoolInfo" useGeneratedKeys="true">
     insert into school_info (id, school_name, school_namec_ch, 
-      homepage_url, recruit_students_url, created_at, 
-      updated_at)
+      homepage_url, recruit_students_url, method_name, 
+      created_at, updated_at)
     values (#{id,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}, #{schoolNamecCh,jdbcType=VARCHAR}, 
-      #{homepageUrl,jdbcType=VARCHAR}, #{recruitStudentsUrl,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
-      #{updatedAt,jdbcType=TIMESTAMP})
+      #{homepageUrl,jdbcType=VARCHAR}, #{recruitStudentsUrl,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" keyProperty="id" parameterType="com.mfq.home.schooljob.domain.generation.SchoolInfo" useGeneratedKeys="true">
     insert into school_info
@@ -139,6 +140,9 @@
       </if>
       <if test="recruitStudentsUrl != null">
         recruit_students_url,
+      </if>
+      <if test="methodName != null">
+        method_name,
       </if>
       <if test="createdAt != null">
         created_at,
@@ -162,6 +166,9 @@
       </if>
       <if test="recruitStudentsUrl != null">
         #{recruitStudentsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        #{methodName,jdbcType=VARCHAR},
       </if>
       <if test="createdAt != null">
         #{createdAt,jdbcType=TIMESTAMP},
@@ -205,6 +212,12 @@
         <if test="record.recruitStudentsUrlExpression!=null">
           recruit_students_url = ${record.recruitStudentsUrlExpression},
         </if>
+        <if test="record.methodName!=null and record.methodNameExpression==null">
+          method_name = #{record.methodName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.methodNameExpression!=null">
+          method_name = ${record.methodNameExpression},
+        </if>
         <if test="record.createdAt!=null and record.createdAtExpression==null">
           created_at = #{record.createdAt,jdbcType=TIMESTAMP},
         </if>
@@ -230,6 +243,7 @@
       school_namec_ch = #{record.schoolNamecCh,jdbcType=VARCHAR},
       homepage_url = #{record.homepageUrl,jdbcType=VARCHAR},
       recruit_students_url = #{record.recruitStudentsUrl,jdbcType=VARCHAR},
+      method_name = #{record.methodName,jdbcType=VARCHAR},
       created_at = #{record.createdAt,jdbcType=TIMESTAMP},
       updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -264,6 +278,12 @@
         <if test="record.recruitStudentsUrlExpression!=null">
           recruit_students_url = ${record.recruitStudentsUrlExpression},
         </if>
+        <if test="record.methodName!=null and record.methodNameExpression==null">
+          method_name = #{record.methodName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.methodNameExpression!=null">
+          method_name = ${record.methodNameExpression},
+        </if>
         <if test="record.createdAt!=null and record.createdAtExpression==null">
           created_at = #{record.createdAt,jdbcType=TIMESTAMP},
         </if>
@@ -286,6 +306,7 @@
       school_namec_ch = #{schoolNamecCh,jdbcType=VARCHAR},
       homepage_url = #{homepageUrl,jdbcType=VARCHAR},
       recruit_students_url = #{recruitStudentsUrl,jdbcType=VARCHAR},
+      method_name = #{methodName,jdbcType=VARCHAR},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_at = #{updatedAt,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}

@@ -14,12 +14,23 @@ public class MailUtil {
         OhMyEmail.config(OhMyEmail.SMTP_QQ(false), username, password);
     }
 
-    private static void sendText(String subject,String from,String to,String text) throws SendMailException {
+    public static void sendText(String subject,String from,String to,String text) throws SendMailException {
         OhMyEmail.subject(subject)
                 .from(from)
                 .to(to)
                 .text(text)
                 .send();
     }
+
+    public static void main(String[] args) {
+        try {
+            
+            sendText("邮件测试","2874290468@qq.com","824717045@qq.com","邮件正文");
+        } catch (SendMailException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

@@ -19,14 +19,8 @@ import java.util.regex.Pattern;
 public class RecruitFileUtil {
 
 
-    private static String httpPrefix="https://peda.smu.ac.kr";
 
-    private static String pageUrl ="/grad/admission/student.do";
-
-
-
-
-    public static SchoolFileInfo SmuRecruitFile(SchoolInfo schoolInfo){
+    public static SchoolFileInfo SangmyungRecruitFile(SchoolInfo schoolInfo){
         //请求页面地址，获取html页面
         Document doc = null;
         try {

@@ -16,4 +16,6 @@ public interface SchoolService {
 
     int deleteSchoolInfo(String id);
 
+    void invokeSchoolInfo();
+
 }

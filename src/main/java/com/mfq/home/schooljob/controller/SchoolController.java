@@ -29,8 +29,12 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "/api/saveSchoolInfo", method = RequestMethod.POST)
-    public void createCity(@RequestBody SchoolInfo schoolInfo) {
+    public void saveSchoolInfo(@RequestBody SchoolInfo schoolInfo) {
         schoolService.saveSchoolInfo(schoolInfo);
     }
 
+    @RequestMapping(value = "/api/invokeSchoolInfo", method = RequestMethod.GET)
+    public void invokeSchoolInfo() {
+        schoolService.invokeSchoolInfo();
+    }
 }

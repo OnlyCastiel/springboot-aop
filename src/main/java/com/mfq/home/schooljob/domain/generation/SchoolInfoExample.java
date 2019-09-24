@@ -486,6 +486,76 @@ public class SchoolInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andMethodNameIsNull() {
+            addCriterion("method_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameIsNotNull() {
+            addCriterion("method_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameEqualTo(String value) {
+            addCriterion("method_name =", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameNotEqualTo(String value) {
+            addCriterion("method_name <>", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameGreaterThan(String value) {
+            addCriterion("method_name >", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameGreaterThanOrEqualTo(String value) {
+            addCriterion("method_name >=", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameLessThan(String value) {
+            addCriterion("method_name <", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameLessThanOrEqualTo(String value) {
+            addCriterion("method_name <=", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameLike(String value) {
+            addCriterion("method_name like", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameNotLike(String value) {
+            addCriterion("method_name not like", value, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameIn(List<String> values) {
+            addCriterion("method_name in", values, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameNotIn(List<String> values) {
+            addCriterion("method_name not in", values, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameBetween(String value1, String value2) {
+            addCriterion("method_name between", value1, value2, "methodName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMethodNameNotBetween(String value1, String value2) {
+            addCriterion("method_name not between", value1, value2, "methodName");
+            return (Criteria) this;
+        }
+
         public Criteria andCreatedAtIsNull() {
             addCriterion("created_at is null");
             return (Criteria) this;

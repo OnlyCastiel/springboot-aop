@@ -28,6 +28,9 @@ public class SchoolInfo implements Serializable {
     /** 招生信息地址（相对路径） */
     private String recruitStudentsUrl;
 
+    /** 页面解析方法名 */
+    private String methodName;
+
     /** 创建时间 */
     private Date createdAt;
 
@@ -63,6 +66,12 @@ public class SchoolInfo implements Serializable {
      **/
     @JsonIgnore
     private String recruitStudentsUrlExpression;
+
+    /** methodName属性对应的表达式属性，
+     * 目前用来支持update set 字段=表达式(如:'字段+1')这种场景
+     **/
+    @JsonIgnore
+    private String methodNameExpression;
 
     /** createdAt属性对应的表达式属性，
      * 目前用来支持update set 字段=表达式(如:'字段+1')这种场景
