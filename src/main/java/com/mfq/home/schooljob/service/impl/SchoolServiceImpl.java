@@ -105,7 +105,7 @@ public class SchoolServiceImpl implements SchoolService {
                     String text = schoolInfo.getSchoolName()+"招生简章已更新;地址"+schoolInfo.getHomepageUrl()+schoolInfo.getRecruitStudentsUrl();
                     MailUtil.sendText("招生简章更新通知","2874290468@qq.com","824717045@qq.com",text);
                 }else{
-                    MailUtil.sendText("招生简章获取出错","2874290468@qq.com","824717045@qq.com","");
+                    MailUtil.sendText("招生简章获取出错","2874290468@qq.com","824717045@qq.com",schoolInfo.getSchoolName());
                 }
             }
         } catch (Exception e) {
