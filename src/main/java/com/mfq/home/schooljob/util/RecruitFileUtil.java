@@ -27,7 +27,7 @@ public class RecruitFileUtil {
             SchoolFileInfo fileInfo = new SchoolFileInfo();
             fileInfo.setSchoolId(schoolInfo.getId());
 
-            doc = Jsoup.connect(schoolInfo.getHomepageUrl()+schoolInfo.getRecruitStudentsUrl()).get();
+            doc = Jsoup.connect(schoolInfo.getHomepageUrl()+schoolInfo.getRecruitStudentsUrl()).timeout(60*1000).get();
             Elements elementsByClass = doc.getElementsByClass("lnk-btn02 bg-lightblue");
             String href = elementsByClass.attr("href");
 
@@ -61,7 +61,7 @@ public class RecruitFileUtil {
             SchoolFileInfo fileInfo = new SchoolFileInfo();
             fileInfo.setSchoolId(schoolInfo.getId());
 
-            doc = Jsoup.connect(schoolInfo.getHomepageUrl()+schoolInfo.getRecruitStudentsUrl()).get();
+            doc = Jsoup.connect(schoolInfo.getHomepageUrl()+schoolInfo.getRecruitStudentsUrl()).timeout(60*1000).get();
             Elements iframe = doc.select("iframe[src]"); //带有src属性的iframe元素
             String src = iframe.attr("src");
             //获取地址，需要解析 尾缀推测为md5码，通过md5码来判断是否有更新

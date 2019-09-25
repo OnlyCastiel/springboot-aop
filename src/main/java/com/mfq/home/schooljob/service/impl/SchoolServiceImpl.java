@@ -84,12 +84,14 @@ public class SchoolServiceImpl implements SchoolService {
                     if(StringUtils.isNotEmpty(newFile.getFileCode())){
                         if(StringUtils.equals(newFile.getFileCode(),oldFile.getFileCode())){
                             //文件md5码一致，不用更新
+                            log.info(schoolInfo.getSchoolName()+"招生简章未更新；md5码一致");
                             continue;
                         }
                     }else{
                         //文件名校验情况
                         if(StringUtils.equals(newFile.getFileName(),oldFile.getFileName())){
                             //文件名一致，不用更新
+                            log.info(schoolInfo.getSchoolName()+"招生简章未更新；文件名一致");
                             continue;
                         }
                     }
