@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mfq.home</groupId>
-    <artifactId>school-base</artifactId>
+    <artifactId>school-job</artifactId>
     <version>1.0.0</version>
     <name>school-job</name>
 
@@ -118,5 +118,28 @@
             <artifactId>oh-my-email</artifactId>
             <version>0.0.4</version>
         </dependency>
+
+        <!-- Logstash encoder -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.4</version>
+        </dependency>
     </dependencies>
+
+
+
+    <build>
+        <finalName>school-job</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin </artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
